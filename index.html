@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: rgb(94, 21, 21);
+        }
+
+        body {
+            background-color: rgb(115, 176, 226);
+            text-align: center;
+
+            form {
+                text-align: center;
+            }
+
+            p {
+                color: rgb(0, 0, 0);
+            }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1> PERSONAL LIBRARY KNOWLEDGE....</h1><br>
+        <p>
+            <label for="t1">Title Of Book</label>
+            <input type="text" name="title" id="t1">
+        </p>
+        <p>
+            <label for="a1">Author's name</label>
+            <input type="text" name="Author" id="a1">
+        </p>
+        <p>
+            <label for="yp1">Published Year</label>
+            <input type="date" name="Published" id="yp1">
+        </p>
+        <p>
+            <label for="rs1">Status Of Book</label>
+            <input type="radio" name="readst" id="rs1">
+            <label for="rs1">Finshed</label>
+
+            <input type="radio" name="readst" id="rs2">
+            <label for="rs2">Un_Finshed</label>
+        </p>
+        <p>
+            <button type="submit">clear form</button>
+            <button type="button" onclick="print()">Show</button> 
+            <button type="button" onclick="addbook()">Add-Book</button>
+            <button type="button" onclick="removebook()">rem-recent</button>
+            <button type="button" onclick="abbbookFirst()">Important</button>
+            <button type="button" onclick="removeFirBook()">rem-old</button>
+        </p>
+    </form>
+
+    <script> function print() {
+            let Book = {
+                title: document.getElementById('t1').value, author: document.getElementById('a1').value, yearPublished: document.getElementById('yp1').value, readStatus: true,
+
+                getSummary() {
+                    console.log("Title: " + this.title); console.log("Author: " + this.author); console.log("yearPublished: " + this.yearPublished); console.log("ReadStatus: " + this.readStatus);
+                }
+            }
+            Book.getSummary(); return Book;
+        }
+
+        let bka = new Array(); function addbook() {
+            let ad = print(); bka.push(ad);
+            console.log("After Adding newBook"); console.log(bka);
+        }
+
+        function removebook() {
+            bka.pop();
+            console.log("After Remove The Last Book"); console.log(bka);
+        }
+        function abbbookFirst() {
+            let ac = print(); bka.unshift(ac);
+            console.log("After Adding book"); console.log(bka);
+        }
+
+        function removeFirBook() {
+            bka.shift();
+            console.log("After Removing First Book"); console.log(bka);
+        }
+    </script>
+</body>
+
+</html>
